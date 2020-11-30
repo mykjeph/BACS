@@ -977,7 +977,7 @@ $(document).ready(function(){
 
 					$document_no = $_SESSION['document_no'];
 
-					$query=$conn->query("select * from commentuser where document_no = '$document_no'" );						
+					$query=$conn->query("select * from user_comments where document_no = '$document_no'" );						
 
 					while($row=$query->fetch()){
 

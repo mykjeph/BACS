@@ -384,7 +384,7 @@ if(isset($_POST["get_doc_no"])){
 
 				$connectDb = mysqli_select_db($conn,'bacs');
 
-				$query = "INSERT into `commentuser`(document_no, commentfield, commentby) VALUES ('$updocument_no','$comment','$loguser')";
+				$query = "INSERT into `user_comments`(document_no, commentfield, commentby) VALUES ('$updocument_no','$comment','$loguser')";
 
 				$result = mysqli_query($conn,$query);
 
@@ -525,7 +525,7 @@ if(isset($_POST["get_doc_no"])){
 
 				$connectDb = mysqli_select_db($conn,'bacs');
 
-				$query = "INSERT into `commentuser`(document_no, commentfield, commentby) VALUES ('$updocument_no','$comment','$loguser')";
+				$query = "INSERT into `user_comments`(document_no, commentfield, commentby) VALUES ('$updocument_no','$comment','$loguser')";
 
 				$result = mysqli_query($conn,$query);
 
@@ -666,7 +666,7 @@ if(isset($_POST["get_doc_no"])){
 
 				$connectDb = mysqli_select_db($conn,'bacs');
 
-				$query = "INSERT into `commentuser`(document_no, commentfield, commentby) VALUES ('$updocument_no','$comment','$loguser')";
+				$query = "INSERT into `user_comments`(document_no, commentfield, commentby) VALUES ('$updocument_no','$comment','$loguser')";
 
 				$result = mysqli_query($conn,$query);
 
@@ -1520,7 +1520,7 @@ $(document).ready(function(){
 
 					$document_no = $_SESSION['document_no'];
 
-					$query=$conn->query("select * from commentuser where document_no = '$document_no'" );						
+					$query=$conn->query("select * from user_comments where document_no = '$document_no'" );						
 
 					while($row=$query->fetch()){
 

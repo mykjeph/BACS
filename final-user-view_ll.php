@@ -146,7 +146,7 @@ if(isset($_POST["get_doc_no"])){
 			//==========Insert Comments==========
 			$conn=mysqli_connect("localhost","root","","bacs");	
 			$connectDb = mysqli_select_db($conn,'bacs');
-			$query = "INSERT into `commentuser`(document_no, commentfield, commentby) VALUES ('$updocument_no','$comment','$loguser')";
+			$query = "INSERT into `user_comments`(document_no, commentfield, commentby) VALUES ('$updocument_no','$comment','$loguser')";
 			$result = mysqli_query($conn,$query);
 			$_SESSION['rows'] = mysqli_fetch_array($result);
 			//$_SESSION['commentfield'] = $_SESSION['rows']['commentfield'];
@@ -684,7 +684,7 @@ $(document).ready(function(){
 					<tr><td><!--<div style="position:relative;height:100%;overflow-y: scroll;">-->
 					<?php
 					$document_no = $_SESSION['document_no'];
-					$query=$conn->query("select * from commentuser where document_no = '$document_no'" );						
+					$query=$conn->query("select * from user_comments where document_no = '$document_no'" );						
 					while($row=$query->fetch()){
 						//$document_no=$row['document_no'];
 						$commentfield=$row['commentfield'];

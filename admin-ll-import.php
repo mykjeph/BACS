@@ -59,7 +59,7 @@ $document_no = "";
 			 $query = "INSERT into `ll` (document_no, ref_no, document_status, delivery_team, location, date_issued, ll_title, ll_description, causes_findings, corrective_actions, submitted_by) VALUES ('$document_no', '$ref_no', '$document_status','$delivery_team','$location','$date_issued', '$ll_title', '$ll_description', '$causes_findings', '$corrective_actions', '$submitted_by')";
 	  		 $result = mysqli_query($conn,$query);
 			 
-			$query2 = "INSERT into `commentuser` (document_no, commentfield, commentby ) VALUES ('$document_no','$comments','$submitted_by')";
+			$query2 = "INSERT into `user_comments` (document_no, commentfield, commentby ) VALUES ('$document_no','$comments','$submitted_by')";
 			$result2 = mysqli_query($conn,$query2);				
 
 			//mysqli_close($conn);	
@@ -522,7 +522,7 @@ if(isset($_POST["extract_data"]))
 		  		}
 			 	$connectDb = mysqli_select_db($conn,'bacs');
 							
-            $query = "INSERT INTO importll (document_location, document_name) VALUES('$newname','$filename')";
+            $query = "INSERT INTO import_ll (document_location, document_name) VALUES('$newname','$filename')";
             $result = mysqli_query($conn,$query);        
             
             if (isset($result))
